@@ -76,7 +76,7 @@ else
     echo Attempt to mount the ISO root
     # It is possible that the partition isn't ready to be mounted when this script
     # is first run. So use a retry loop.
-    retry mount -L $LABEL -o ro $ISO_ROOT
+    mount -L $LABEL -o ro $ISO_ROOT
 fi
 
 if [[ ! -f "$UNATTENDED_CONFIG_FILE" ]]; then
