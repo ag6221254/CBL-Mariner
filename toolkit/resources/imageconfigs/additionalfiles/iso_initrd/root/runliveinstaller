@@ -39,8 +39,8 @@ LABEL=CDROM
 
 function retry {
     local retry=0
-    local limit=10
-    local sleep_seconds=15
+    local limit=1
+    local sleep_seconds=5
     while [ $retry -lt $limit ]
     do
         "$@" && break
@@ -76,7 +76,10 @@ else
     echo Attempt to mount the ISO root
     # It is possible that the partition isn't ready to be mounted when this script
     # is first run. So use a retry loop.
-    mount -L $LABEL -o ro $ISO_ROOT
+    if grep -q "no-cdrom" $CMDLINE; then
+        echo no-cdrom specified, CD-ROM will not be mounter
+    else
+        retry mount -L $LABEL -o ro $ISO_ROOT
 fi
 
 if [[ ! -f "$UNATTENDED_CONFIG_FILE" ]]; then
