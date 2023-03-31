@@ -18,6 +18,8 @@ Signed-off-by: Chris PeBenito <Christopher.PeBenito@microsoft.com>
  policy/modules/system/unconfined.if  |   19 +
  8 files changed, 1096 insertions(+), 24 deletions(-)
 
+MSFT_TAG: pending
+
 diff --git a/policy/modules/admin/cloudinit.if b/policy/modules/admin/cloudinit.if
 index 525fd7795..d29b825ab 100644
 --- a/policy/modules/admin/cloudinit.if
